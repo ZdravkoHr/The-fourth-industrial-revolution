@@ -1,0 +1,49 @@
+@mixin flex-center($horizontal: 'true', $vertical: 'true') {
+    display: flex;
+    @if $horizontal == 'true' {
+        justify-content: center;
+    }
+    @if $vertical == 'true' {
+        align-items: center;
+    }
+}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search-result-box {
+    border: 1px solid black;
+    width: 80%;
+    margin: 100px auto;
+    input[type="text"] {
+        width: 100%;
+    }
+    .no-results {
+        text-align: center;
+        margin: 20px;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+        .search-result {
+            @include flex-center('false', 'true');
+            padding: 5px;
+            font-weight: bold;
+            .search-result-img {
+                width: 50px;
+                height: 50px;
+            }
+            p {
+                margin: 0 15px;
+            }
+        }
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
