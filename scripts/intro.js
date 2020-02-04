@@ -8,6 +8,4 @@ function applyAnimation() {
     setTimeout(hideIntro, 2500);
 }
 
-
-
 setTimeout(applyAnimation, 1000);
