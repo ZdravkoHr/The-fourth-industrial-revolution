@@ -5,7 +5,7 @@ const titleCheckBox = document.querySelector('.search-result-box input[name="tit
 const contentCheckBox = document.querySelector('.search-result-box input[name="content-search"]');
 
 function search() {
-    const text = searchField.value;
+    const text = removeSpecialChars(searchField.value);
     let hasRow = false;
     searchResults.innerHTML = '';
     if (!text) return;
@@ -76,6 +76,20 @@ function clickedOnBox(element) {
 
     return foundClass;
 } 
+
+function removeSpecialChars(str) {
+    const pattern = /([\\^${}[\]().*+?|<>&])/;
+    let matches = pattern.exec(str);
+    let index = matches ? matches.index : 0;
+    while (matches) {
+      str = str.substring(0, index) + str.substring(index).replace(matches[0], '\\' + matches[1]);
+      matches = pattern.exec(str.substring(index + 2));
+      if (!matches) break;
+      index += matches.index + 2;
+    }
+
+    return str;
+}
 
 searchField.addEventListener('input', search);
 titleCheckBox.addEventListener('input', search);
