@@ -31,7 +31,7 @@ header {
             position: absolute;
             width: 40%;
             margin-top: 30px;
-            margin-left: -37%;
+            margin-left: -20%;
             padding: .7rem;
             background-color: #fff;
             color: getContrastColor(#fff);
@@ -46,7 +46,7 @@ header {
                 background: #fff;
                 position: absolute;
                 top: -18px;
-                left: 92%;
+                left: 50%;
                 clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             }
 
@@ -85,8 +85,6 @@ header {
                 right: 15px;
             }
         }
-
-        
     }
 }
 
