@@ -12,14 +12,80 @@ header {
         padding: 2rem 2rem;
         display: flex;
         justify-content: space-between;
-        ul {
+        ul.main-menu {
             li {
                 list-style-type: none;
                 float: left;
                 margin: 0 10px;
-                text-transform: uppercase;
+                &.list-item {
+                    text-transform: uppercase;
+                }
             }
         }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .search-box {
+            position: absolute;
+            width: 40%;
+            margin-top: 30px;
+            margin-left: -37%;
+            padding: .7rem;
+            background-color: #fff;
+            color: getContrastColor(#fff);
+            transition: .5s;
+            transform: scale(1);
+
+            &::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: #fff;
+                position: absolute;
+                top: -18px;
+                left: 92%;
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            }
+
+            .no-results {
+                text-align: center;
+                margin: 20px;
+            }
+
+            .search-result {
+                @include flex-center('false', 'true');
+                padding: 5px;
+                font-weight: bold;
+                .search-result-img {
+                    width: 50px;
+                    height: 50px;
+                }
+                p {
+                    margin: 0 15px;
+                }
+            }
+            input[name="search"] {
+                display: block;
+                margin: 10px 0;
+                width: 100%;
+                border: 0;
+                border-bottom: 1px solid #ccc;
+                padding: 5px 2px;
+            }
+            input[type="checkbox"] {
+                margin: 5px;
+            }
+
+            .close {
+                position: absolute;
+                top: 14px;
+                right: 15px;
+            }
+        }
+
+        
     }
 }
 
