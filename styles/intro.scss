@@ -1,16 +1,14 @@
 @import 'utilities';
 .intro-background {
-    @include full-space-absolute-block;
     @include flex-center('true', 'true');
-    background: #143d5d;
-    color: #fff;
+    padding: 10rem;
     font-size: 3rem;
     text-align: center;
     overflow: hidden;
     .intro-heading {
         
         span{
-            transition: .5s;
+            transition: .3s;
             position: relative;
             left: 0;
         }
