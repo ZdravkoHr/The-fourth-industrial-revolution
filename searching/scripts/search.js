@@ -4,22 +4,23 @@ const searchField = document.querySelector('.search-result-box input[name="searc
 const titleCheckBox = document.querySelector('.search-result-box input[name="titles-search"]');
 const contentCheckBox = document.querySelector('.search-result-box input[name="content-search"]');
 
+const textIncludes = (text, chunk) => text.toLowerCase().includes(chunk);
+
 function search() {
-    const text = removeSpecialChars(searchField.value);
+    const text = searchField.value;
     let hasRow = false;
     searchResults.innerHTML = '';
     if (!text) return;
     pages.forEach(page => {
-        const regExp = new RegExp(text, 'gi');
         let titleMatch;
         let row;
         if (titleCheckBox.checked) {
-            titleMatch = regExp.test(page.title);
+            titleMatch = textIncludes(page.title, text);
             if (titleMatch) row = createSearchResult(page, 'title');
         }
         // we have to exclude the occasion when we have matched the text in the title to avoid duplicating  pages
         if (contentCheckBox.checked && !titleMatch) {
-            if (regExp.test(page.content)) row = createSearchResult(page, 'content');
+            if (textIncludes(page.content, text)) row = createSearchResult(page, 'content');
         }
         if (row) {
             hasRow = true;
@@ -76,20 +77,6 @@ function clickedOnBox(element) {
 
     return foundClass;
 } 
-
-function removeSpecialChars(str) {
-    const pattern = /([\\^${}[\]().*+?|<>&])/;
-    let matches = pattern.exec(str);
-    let index = matches ? matches.index : 0;
-    while (matches) {
-      str = str.substring(0, index) + str.substring(index).replace(matches[0], '\\' + matches[1]);
-      matches = pattern.exec(str.substring(index + 2));
-      if (!matches) break;
-      index += matches.index + 2;
-    }
-
-    return str;
-}
 
 searchField.addEventListener('input', search);
 titleCheckBox.addEventListener('input', search);
