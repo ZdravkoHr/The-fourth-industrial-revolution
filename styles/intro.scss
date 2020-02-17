@@ -8,10 +8,19 @@
     text-align: center;
     overflow: hidden;
     .intro-heading {
-        transition: .5s;
+        
+        span{
+            transition: .5s;
+            position: relative;
+            left: 0;
+        }
         &.not-animated {
-            opacity: 0;
-            letter-spacing: 1000px;
+            span.left-intro-text {
+                left: -200%;
+            }
+            span.right-intro-text {
+                left: 200%;
+            }
         }
     }
     
