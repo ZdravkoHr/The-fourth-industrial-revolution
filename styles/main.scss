@@ -5,13 +5,19 @@
     box-sizing: border-box;
 }
 
+body{
+    height: 200vh;
+}
+
 header {
     height: 100vh;
-    @include dark-overlay-img('../media/random.png', 0.6, 0.7);
+    @include dark-overlay-img('../media/home pics/random.png', 0.6, 0.7);
     nav {
         padding: 2rem 2rem;
         display: flex;
         justify-content: space-between;
+        position: fixed;
+        width: 100%;
         ul.main-menu {
             li {
                 list-style-type: none;
