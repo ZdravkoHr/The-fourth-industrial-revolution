@@ -5,7 +5,9 @@
     box-sizing: border-box;
 }
 
-
+body {
+    font-family: 'Century Gothic', sans-serif;
+}
 
 header {
     min-height: 100vh;
@@ -167,6 +169,62 @@ section.revolutions {
             left: 10px;
             transform: rotate(22deg);
         }
+    }
+}
+
+section.topics {
+    .flex-row {
+        color: #fff;
+        .col {
+            @include flex-center("true");
+            flex-direction: column;
+            text-align: center;
+            padding: 3rem;
+            min-height: 50vh;
+            min-width: 50%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            .topic-icon {
+                width: 150px;
+                height: 150px;
+            }
+            .topic-title {
+                font-size: 4vw;
+                margin-top: 30px;
+            }
+        }
+        
+
+        &:nth-child(1) {
+            .col:nth-child(1) {
+                @include dark-overlay-img("../media/home pics/ai-box.jpg", 0.6, 0.7);
+            }
+            .col:nth-child(2) {
+                @include dark-overlay-img("../media/home pics/nanotech-box.jpg", 0.6, 0.7);
+            }
+        }
+        &:nth-child(2) {
+            .col:nth-child(1) {
+                @include dark-overlay-img("../media/home pics/internet-box.jpg", 0.6, 0.7);
+                .topic-icon {
+                    margin-left: -75px;
+                    img {
+                        width: 150%;
+                    }
+                }
+            }
+            .col:nth-child(2) {
+                @include dark-overlay-img("../media/home pics/biotech-box.jpg", 0.6, 0.7);
+            }
+        }
+    }
+}
+
+.flex-row {
+    display: flex;
+    * {
+        flex: 1;
     }
 }
 
