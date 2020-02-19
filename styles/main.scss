@@ -5,12 +5,10 @@
     box-sizing: border-box;
 }
 
-body{
-    height: 200vh;
-}
+
 
 header {
-    height: 100vh;
+    min-height: 100vh;
     @include dark-overlay-img('../media/home pics/random.png', 0.6, 0.7);
     nav {
         padding: 2rem 2rem;
