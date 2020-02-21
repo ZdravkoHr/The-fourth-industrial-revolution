@@ -210,14 +210,59 @@ section.info {
                 color: #395257;
                 font-size: 2rem;
                 text-align: center;
-            }
+            } 
         }
         p {
             padding: 20px;
         }
     }
-
 }
+
+section.gallery {
+    display: grid;
+    grid-template-areas: "img1 img2 img3 img4"
+                         "img5 img6 img7 img4"
+                         "img8 img8 img9 img4";
+
+    .gallery-item {
+        background-size: cover;
+        background-position: center;
+        @for $i from 1 to 10 {
+            &:nth-child(#{$i}) {
+                grid-area: img#{$i}
+            }
+        }
+        &:nth-child(1) {
+            background-image: url('../media/1st\ rev\ pics/1st.jpeg')
+        }
+        &:nth-child(2) {
+            background-image: url('../media/1st\ rev\ pics/1st.jpg')
+        }
+        &:nth-child(3) {
+            background-image: url('../media/1st\ rev\ pics/1st1.jpg')
+        }
+        &:nth-child(4) {
+            background-image: url('../media/1st\ rev\ pics/1st-inventions.jpg')
+        }
+        &:nth-child(5) {
+            background-image: url('../media/1st\ rev\ pics/1st2.jpg')
+        }
+        &:nth-child(6) {
+            background-image: url('../media/1st\ rev\ pics/1st5.jpg')
+        }
+        &:nth-child(7) {
+            background-image: url('../media/1st\ rev\ pics/1st-inventions2.jpg')
+        }
+        &:nth-child(8) {
+            background-image: url('../media/1st\ rev\ pics/1st34.jpg')
+        }
+        &:nth-child(9) {
+            background-image: url('../media/1st\ rev\ pics/1st-inventions3.jpg')
+        }
+    } 
+}
+
+
 
 footer {
     background-color: #232726;
