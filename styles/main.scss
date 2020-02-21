@@ -13,7 +13,7 @@ body {
 
 header {
     min-height: 100vh;
-    @include dark-overlay-img('../media/home pics/random.png', 0.6, 0.7);
+    @include dark-overlay-img('../media/home pics/header.jpg', 0.6, 0.7);
     nav {
         padding: 0 2rem;
         display: flex;
@@ -39,51 +39,75 @@ header {
             }
         }
       }
-    }
+    
     a {
       text-decoration: none;
       color: inherit;
     }
 
-        .search-box {
+    .search-box {
+        position: absolute;
+        width: 40%;
+        margin-top: 30px;
+        margin-left: -20%;
+        padding: .7rem;
+        background-color: #fff;
+        color: getContrastColor(#fff);
+        transition: .5s;
+        transform: scale(1);
+        z-index: 2;
+
+        &::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #fff;
             position: absolute;
-            width: 40%;
-            margin-top: 30px;
-            margin-left: -20%;
-            padding: .7rem;
-            background-color: #fff;
-            color: getContrastColor(#fff);
-            transition: .5s;
-            transform: scale(1);
-            z-index: 2;
+            top: -18px;
+            left: 50%;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
 
-            &::before {
-                content: '';
-                width: 20px;
-                height: 20px;
-                background: #fff;
-                position: absolute;
-                top: -18px;
-                left: 50%;
-                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        .no-results {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search-result {
+            @include flex-center('false', 'true');
+            padding: 5px;
+            font-weight: bold;
+            .search-result-img {
+                width: 50px;
+                height: 50px;
             }
+            p {
+                margin: 0 15px;
+            }
+        }
+        input[name="search"] {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+            padding: 5px 2px;
+        }
+        input[type="checkbox"] {
+            margin: 5px;
+        }
 
-      .no-results {
-        text-align: center;
-        margin: 20px;
-      }
-
-      .search-result {
-        @include flex-center("false", "true");
-        padding: 5px;
-        font-weight: bold;
-        .search-result-img {
-          width: 50px;
-          height: 50px;
+        .close {
+            position: absolute;
+            top: 14px;
+            right: 15px;
         }
     }
-  }
+}
 
+section {
+    min-height: 100vh;
+}
 
 section.revolutions {
     display: flex;
@@ -121,7 +145,6 @@ section.revolutions {
 }
 
 section.topics {
-    height: 100vh;
     .flex-row {
         color: #fff;
         height: 50%;
@@ -169,8 +192,31 @@ section.topics {
 }
 
 section.after-revolution {
-    min-height: 100vh;
     background-image: url('../media/home\ pics/Final_Webinar_Fourth_Industrial.jpg');
+}
+
+section.info {
+    padding: 4rem 1rem;
+    p {
+        padding: 20px 0;
+        text-align: justify;
+    }
+    .flex-row {
+        .info-img {
+            flex: .5;
+        }
+        .text-1 {
+            h3 {
+                color: #395257;
+                font-size: 2rem;
+                text-align: center;
+            }
+        }
+        p {
+            padding: 20px;
+        }
+    }
+
 }
 
 footer {
