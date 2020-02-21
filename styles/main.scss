@@ -9,6 +9,7 @@
 
 body {
     font-family: 'Century Gothic', sans-serif;
+    position: relative;
 }
 
 header {
@@ -262,7 +263,45 @@ section.gallery {
     } 
 }
 
-
+.black-gallery-overlay {
+    @include overlay;
+    z-index: 200;
+    .gallery-container {
+        margin: 0 auto;
+        position: fixed;
+        width: 80%;
+        z-index: 201;
+        color: #fff;
+        .current-img {
+            background-image: url('../media/1st\ rev\ pics/1st.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 600px;
+            position: relative;
+            .go-icon {
+                font-size: 3rem;
+                position: absolute;
+                top: 50%;
+                &-back {
+                    left: -50px;
+                }
+                &-forward {
+                    right: -50px;
+                }
+            }
+            .close-icon {
+                font-size: 3rem;
+                position: absolute;
+                top: calc(-3rem - 10px);
+                right: 0;
+            }
+        }
+        .current-info {
+            margin: 20px 0;
+        }
+        
+    }
+}
 
 footer {
     background-color: #232726;
