@@ -1,6 +1,8 @@
+{
 const section = document.querySelector('section.gallery');
 const overlay = document.querySelector('.black-gallery-overlay');
 const galleryContainer = document.querySelector('.gallery-container');
+const closeIcon_gallery = document.querySelector('.gallery-container .close-icon');
 const images = [
     {
         path: '../media/1st\ rev\ pics/1st.jpeg',
@@ -40,15 +42,20 @@ const images = [
     }
 ];
 
+const closeContainer = () => {
+    overlay.classList.add('d-none');
+}
+
 function openContainer(e) {
-    const currentImg_container = document.querySelector('.gallery-container .current-img');
+    const currentImg = document.querySelector('.gallery-container .current-img img');
     const index = e.target.dataset.index;
     const img = images[index];
     overlay.classList.remove('d-none');
     center(galleryContainer);
-    currentImg_container.style.backgroundImage = `url('${img.path}')`;
-    console.log(currentImg_container);
+    currentImg.src = img.path;
+
 }
 
-
 section.addEventListener('click', openContainer);
+closeIcon_gallery.addEventListener('click', closeContainer);
+}
