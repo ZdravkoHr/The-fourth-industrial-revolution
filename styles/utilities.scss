@@ -28,36 +28,6 @@
   bottom: 0;
 }
 
-@mixin revolution-img-before {
-  content: "";
-  width: 20px;
-
-  background: #000;
-  
-  position: absolute;
-  transform-origin: top;
-
-  z-index: -1;
-  transition: .5s; 
-  transform: rotate(148deg);
-    height: 23vw;
-    top: 75%;
-    left: 20%;
-}
-
-@mixin revolution-img-after {
-  content: "";
-  width: 20px;
-  height: 25vw;
-  background: #000;
-  transform: rotate(45deg);
-  position: absolute;
-  transform-origin: top;
-  top: 35px;
-  left: 61px;
-  z-index: -1;
-  transition: .5s;
-}
 
 @function getContrastColor($color) {
   @if (lightness($color) <= 60) {

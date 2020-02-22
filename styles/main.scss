@@ -272,18 +272,21 @@ section.gallery {
         position: fixed;
         max-height: 600px;
         width: 98%;
-        overflow-y: scroll;
         z-index: 201;
         color: #fff;
+
+        &.auto-width {
+            width: auto;
+        }
+
         .wrapper {
                 display: flex;
-                flex-direction: column;
-                align-items: center;
                 position: relative;
                 .close-icon {
-                    font-size: 3rem;
+                    font-size: 2rem;
                     position: absolute;
-                    right: 20px;
+                    right: 40px;
+                    top: calc(-2rem - 10px);
                 }
             .current-img {
                 height: 35vw;
@@ -292,16 +295,22 @@ section.gallery {
                 
                 img {
                     width: auto;
+                    box-shadow: 10px 10px 10px #000;
                 }
                 .go-icon {
-                    font-size: 3rem;
+                    font-size: 2rem;
                     position: absolute;
-                    top: 50%;
+                    top: 0;
+                    bottom: 0;
+                    @include flex-center;
+                    background-color: rgba(0, 0, 0, .2);
+                    padding: 0 10px;
+                    
                     &-back {
-                        left: -50px;
+                        left: 0;
                     }
                     &-forward {
-                        right: -50px;
+                        right: 0;
                     }
                 }
             }
@@ -309,7 +318,7 @@ section.gallery {
             
         }
         .current-info {
-            margin: 20px 0;
+            padding: 0 20px;
         }
         
     }
@@ -335,4 +344,4 @@ img {
 canvas.lines {
     position: absolute;
     z-index: -1;
-  }
+}

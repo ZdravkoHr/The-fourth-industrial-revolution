@@ -21,7 +21,7 @@ const images = [
     },
     {
         path: '../media/1st\ rev\ pics/1st-inventions.jpg',
-        info: 'lorem'
+        info: null
     },
     {
         path: '../media/1st\ rev\ pics/1st2.jpg',
@@ -54,14 +54,23 @@ function openContainer(e) {
     index = e.target.dataset.index;
     const img = images[index];
     overlay.classList.remove('d-none');
-    center(galleryContainer);
+    setTimeout(() => center(galleryContainer));
     setImage(img);
 }
 
 function setImage(imgInfo) {
     const { path, info } = imgInfo;
     currentImg_container.src = path;
-    currentInfo_para.innerHTML = info;
+    if (info) {
+        galleryContainer.classList.remove('auto-width');
+        currentInfo_para.innerHTML = info;
+        setTimeout(() => center(galleryContainer));
+    }
+    else {
+        galleryContainer.classList.add('auto-width');
+        currentInfo_para.innerHTML = '';
+        setTimeout(() => center(galleryContainer));
+    }  
 }
 
 
