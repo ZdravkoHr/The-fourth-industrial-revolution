@@ -19,36 +19,15 @@
   color: getContrastColor(rgba(0, 0, 0, $opacity1));
 }
 
-@mixin revolution-img-before {
-  content: "";
-  width: 20px;
-
-  background: #000;
-  
+@mixin overlay() {
+  background-color: rgba(0, 0, 0, .8);
   position: absolute;
-  transform-origin: top;
-
-  z-index: -1;
-  transition: .5s; 
-  transform: rotate(148deg);
-    height: 23vw;
-    top: 75%;
-    left: 20%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
-@mixin revolution-img-after {
-  content: "";
-  width: 20px;
-  height: 25vw;
-  background: #000;
-  transform: rotate(45deg);
-  position: absolute;
-  transform-origin: top;
-  top: 35px;
-  left: 61px;
-  z-index: -1;
-  transition: .5s;
-}
 
 @function getContrastColor($color) {
   @if (lightness($color) <= 60) {
