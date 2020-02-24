@@ -132,3 +132,53 @@ section.info {
     }
   }
 }
+
+section.next-revolution {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 5%;
+  min-height: 0;
+  
+  a{
+     text-decoration: none;
+  }
+  
+  .revolution-bubble {
+    @for $i from 1 to 5 {
+      &.revolution-#{$i} {
+        @include dark-overlay-img('../media/headers/#{$i}.jpg', 0.6, 0.7);
+      }
+    }
+
+    width: 30vw;
+    height: 30vw;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 3vw;
+    border: 10px solid transparent;
+    transition: .5s;
+    span {
+      opacity: 0;
+    }
+    &:hover {
+     border: 10px solid gainsboro;
+      span {
+        transition: .5s;
+        opacity: 1;
+      }
+    }
+  }
+  .next-arrow {
+    display: flex;
+    align-items: center;
+    margin: 0 40px;
+    * {
+      font-size: 5vw;
+    }
+  }
+  
+}
