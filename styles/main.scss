@@ -39,6 +39,9 @@ header {
                 }
             }
         }
+        &.active {
+            background: lighten(#001119, 2%);
+        }
       }
     }
     a {
