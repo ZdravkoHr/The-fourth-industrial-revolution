@@ -16,6 +16,9 @@ body {
 
 header {
   min-height: 100vh;
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
   nav {
     padding: 0 2rem;
     display: flex;

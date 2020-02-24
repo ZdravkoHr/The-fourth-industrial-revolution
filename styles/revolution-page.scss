@@ -1,4 +1,13 @@
 @import "utilities";
+
+header {
+  @for $i from 1 to 5 {
+    &.revolution-#{$i} {
+      @include dark-overlay-img('../media/headers/#{$i}.jpg', 0.6, 0.7);
+    }
+  }
+}
+
 section.gallery {
   display: grid;
   grid-template-areas:
