@@ -1,0 +1,88 @@
+@import "utilities";
+header {
+  @include dark-overlay-img("../media/home pics/header.jpg", 0.6, 0.7);
+}
+
+section.revolutions {
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+
+  .col {
+    position: relative;
+
+    .revolution-img {
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 15vw;
+      height: 15vw;
+      &.active {
+        width: 35vw;
+        height: 35vw;
+      }
+    }
+    @for $i from 1 to 5 {
+      &:nth-child(#{$i}) {
+        margin-top: calc(15% * #{$i % 2});
+        & .revolution-img {
+          background-image: url("../media/home\ pics/#{$i}-rev.png");
+        }
+      }
+    }
+  }
+}
+
+section.topics {
+  .flex-row {
+    color: #fff;
+    height: 50%;
+    .col {
+      @include flex-center("true");
+      flex-direction: column;
+      text-align: center;
+      padding: 3%;
+      width: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .topic-icon {
+        width: 30%;
+      }
+      .topic-title {
+        font-size: 4.3vw;
+      }
+    }
+
+    &:nth-child(1) {
+      .col:nth-child(1) {
+        @include dark-overlay-img("../media/home pics/ai-box.jpg", 0.6, 0.7);
+      }
+      .col:nth-child(2) {
+        @include dark-overlay-img("../media/home pics/nanotech-box.jpg", 0.6, 0.7);
+      }
+    }
+    &:nth-child(2) {
+      .col:nth-child(1) {
+        @include dark-overlay-img("../media/home pics/internet-box.jpg", 0.6, 0.7);
+        .topic-icon {
+          margin-left: -25%;
+          img {
+            width: 150%;
+          }
+        }
+      }
+      .col:nth-child(2) {
+        @include dark-overlay-img("../media/home pics/biotech-box.jpg", 0.6, 0.7);
+      }
+    }
+  }
+
+  .active {
+    background: lighten(#001119, 2%);
+  }
+}
+
+section.after-revolution {
+  background-image: url("../media/home\ pics/Final_Webinar_Fourth_Industrial.jpg");
+}
+

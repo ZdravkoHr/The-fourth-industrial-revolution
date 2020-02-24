@@ -1,4 +1,5 @@
 @import "utilities";
+@import "intro";
 *,
 *::before,
 *::after {
@@ -8,340 +9,121 @@
 }
 
 body {
-    font-family: 'Century Gothic', sans-serif;
-    position: relative;
-    line-height: 1.5;
+  font-family: "Century Gothic", sans-serif;
+  position: relative;
+  line-height: 1.5;
 }
 
-
 header {
-    min-height: 100vh;
-    @include dark-overlay-img('../media/home pics/header.jpg', 0.6, 0.7);
-    nav {
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-        transition: .5s;
-        ul.main-menu {
-            li {
-                list-style-type: none;
-                float: left;
-                margin: 0 10px;
-                padding: 2rem 0;
-                border-bottom: 5px solid transparent;
+  min-height: 100vh;
+  nav {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    transition: 0.5s;
+    ul.main-menu {
+      li {
+        list-style-type: none;
+        float: left;
+        margin: 0 10px;
+        padding: 2rem 0;
+        border-bottom: 5px solid transparent;
 
-                &:hover {
-                    border-bottom: 5px solid #fff;
-                }
-                &.list-item {
-                    text-transform: uppercase;
-                }
-            }
+        &:hover {
+          border-bottom: 5px solid #fff;
         }
-        &.active {
-            background: lighten(#001119, 2%);
+        &.list-item {
+          text-transform: uppercase;
         }
       }
-    
-    a {
-      text-decoration: none;
-      color: inherit;
+    }
+    &.active {
+      background: lighten(#001119, 2%);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .search-box {
+    position: absolute;
+    width: 40%;
+    margin-top: 30px;
+    margin-left: -20%;
+    padding: 0.7rem;
+    background-color: #fff;
+    color: getContrastColor(#fff);
+    transition: 0.5s;
+    transform: scale(1);
+    z-index: 2;
+
+    &::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
 
-    .search-box {
-        position: absolute;
-        width: 40%;
-        margin-top: 30px;
-        margin-left: -20%;
-        padding: .7rem; 
-        background-color: #fff;
-        color: getContrastColor(#fff);
-        transition: .5s;
-        transform: scale(1);
-        z-index: 2;
-
-        &::before {
-            content: '';
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-
-        .no-results {
-            text-align: center;
-            margin: 20px;
-        }
-
-        .search-result {
-            @include flex-center('false', 'true');
-            padding: 5px;
-            font-weight: bold;
-            .search-result-img {
-                width: 50px;
-                height: 50px;
-            }
-            p {
-                margin: 0 15px;
-            }
-        }
-        input[name="search"] {
-            display: block;
-            margin: 10px 0;
-            width: 100%;
-            border: 0;
-            border-bottom: 1px solid #ccc;
-            padding: 5px 2px;
-        }
-        input[type="checkbox"] {
-            margin: 5px;
-        }
-
-        .close {
-            position: absolute;
-            top: 14px;
-            right: 15px;
-        }
+    .no-results {
+      text-align: center;
+      margin: 20px;
     }
+
+    .search-result {
+      @include flex-center("false", "true");
+      padding: 5px;
+      font-weight: bold;
+      .search-result-img {
+        width: 50px;
+        height: 50px;
+      }
+      p {
+        margin: 0 15px;
+      }
+    }
+    input[name="search"] {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #ccc;
+      padding: 5px 2px;
+    }
+    input[type="checkbox"] {
+      margin: 5px;
+    }
+
+    .close {
+      position: absolute;
+      top: 14px;
+      right: 15px;
+    }
+  }
 }
 
 section {
-    min-height: 100vh;
-}
-
-section.revolutions {
-    display: flex;
-    justify-content: space-around;
-    overflow: hidden;
-
-
-  .col{
-
-    position: relative;
-
-    .revolution-img{
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 15vw;
-        height: 15vw;
-        &.active {
-            width: 35vw;
-            height: 35vw;
-    }
-    }
-    @for $i from 1 to 5 {
-      &:nth-child(#{$i}) {
-        margin-top: calc(15% * #{$i % 2});
-        & .revolution-img {
-            background-image: url("../media/home\ pics/#{$i}-rev.png");
-        }
-        
-      }
-    }
-
-
-  }
-
-}
-
-section.topics {
-    .flex-row {
-        color: #fff;
-        height: 50%;
-        .col {
-            @include flex-center("true");
-            flex-direction: column;
-            text-align: center;
-            padding: 3%;
-            width: 50%;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            .topic-icon {
-                width: 30%;
-            }
-            .topic-title {
-                font-size: 4.3vw;
-            }
-        }
-        
-
-        &:nth-child(1) {
-            .col:nth-child(1) {
-                @include dark-overlay-img("../media/home pics/ai-box.jpg", 0.6, 0.7);
-            }
-            .col:nth-child(2) {
-                @include dark-overlay-img("../media/home pics/nanotech-box.jpg", 0.6, 0.7);
-            }
-        }
-        &:nth-child(2) {
-            .col:nth-child(1) {
-                @include dark-overlay-img("../media/home pics/internet-box.jpg", 0.6, 0.7);
-                .topic-icon {
-                    margin-left: -25%;
-                    img {
-                        width: 150%;
-                    }
-                }
-            }
-            .col:nth-child(2) {
-                @include dark-overlay-img("../media/home pics/biotech-box.jpg", 0.6, 0.7);
-            }
-        }
-    }
-
-    .active {
-        background: lighten(#001119, 2%);
-    }
-}
-
-section.after-revolution {
-    background-image: url('../media/home\ pics/Final_Webinar_Fourth_Industrial.jpg');
-}
-
-section.info {
-    padding: 4rem 1rem;
-    p {
-        padding: 20px 0;
-        text-align: justify;
-    }
-    .flex-row {
-        .info-img {
-            flex: .5;
-        }
-        .text-1 {
-            h3 {
-                color: #395257;
-                font-size: 2rem;
-                text-align: center;
-            } 
-        }
-        p {
-            padding: 20px;
-        }
-    }
-}
-
-section.gallery {
-    display: grid;
-    grid-template-areas: "img1 img2 img3 img4"
-                         "img5 img6 img7 img4"
-                         "img8 img8 img9 img4";
-
-    .gallery-item {
-        background-size: cover;
-        background-position: center;
-        @for $i from 1 to 10 {
-            &:nth-child(#{$i}) {
-                grid-area: img#{$i}
-            }
-        }
-        &:nth-child(1) {
-            background-image: url('../media/1st\ rev\ pics/1st.jpeg')
-        }
-        &:nth-child(2) {
-            background-image: url('../media/1st\ rev\ pics/1st.jpg')
-        }
-        &:nth-child(3) {
-            background-image: url('../media/1st\ rev\ pics/1st1.jpg')
-        }
-        &:nth-child(4) {
-            background-image: url('../media/1st\ rev\ pics/1st-inventions.jpg')
-        }
-        &:nth-child(5) {
-            background-image: url('../media/1st\ rev\ pics/1st2.jpg')
-        }
-        &:nth-child(6) {
-            background-image: url('../media/1st\ rev\ pics/1st5.jpg')
-        }
-        &:nth-child(7) {
-            background-image: url('../media/1st\ rev\ pics/1st-inventions2.jpg')
-        }
-        &:nth-child(8) {
-            background-image: url('../media/1st\ rev\ pics/1st34.jpg')
-        }
-        &:nth-child(9) {
-            background-image: url('../media/1st\ rev\ pics/1st-inventions3.jpg')
-        }
-    } 
-}
-
-.black-gallery-overlay {
-    @include overlay;
-    z-index: 200;
-    .gallery-container {
-        margin: 0 auto;
-        position: fixed;
-        max-height: 600px;
-        width: 98%;
-        z-index: 201;
-        color: #fff;
-
-        &.auto-width {
-            width: auto;
-        }
-
-        .wrapper {
-                display: flex;
-                position: relative;
-                .close-icon {
-                    font-size: 2rem;
-                    position: absolute;
-                    right: 40px;
-                    top: calc(-2rem - 10px);
-                }
-            .current-img {
-                height: 35vw;
-                position: relative;
-                display: inline-block;
-                
-                img {
-                    width: auto;
-                    box-shadow: 10px 10px 10px #000;
-                }
-                .go-icon {
-                    font-size: 2rem;
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    @include flex-center;
-                    background-color: rgba(0, 0, 0, .2);
-                    padding: 0 10px;
-                    
-                    &-back {
-                        left: 0;
-                    }
-                    &-forward {
-                        right: 0;
-                    }
-                }
-            }
-           
-            
-        }
-        .current-info {
-            padding: 0 20px;
-        }
-        
-    }
+  min-height: 100vh;
 }
 
 footer {
-    background-color: #232726;
-    min-height: 50vh;
+  background-color: #232726;
+  min-height: 50vh;
 }
 
 .flex-row {
-    display: flex;
-    * {
-        flex: 1;
-    }
+  display: flex;
+  * {
+    flex: 1;
+  }
 }
 
 img {
@@ -350,6 +132,6 @@ img {
 }
 
 canvas.lines {
-    position: absolute;
-    z-index: -1;
+  position: absolute;
+  z-index: -1;
 }
