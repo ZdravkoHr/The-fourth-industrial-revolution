@@ -1,4 +1,5 @@
-const header = document.querySelector('header');
+{
+    const header = document.querySelector('header');
 const section = document.querySelector('section.revolutions');
 const canvas = document.querySelector('canvas.lines');
 const c = canvas.getContext('2d');
@@ -72,3 +73,4 @@ icons
         icon.addEventListener('mouseover', activateIcon);
     });
 
+}
