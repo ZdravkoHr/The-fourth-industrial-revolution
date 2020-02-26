@@ -1,6 +1,6 @@
 @import "utilities";
 header {
-  @include dark-overlay-img("../media/home pics/header.jpg", 0.6, 0.7);
+  @include overlay-img("../media/home pics/header.jpg", 0.6, 0.7);
 }
 
 section.revolutions {
@@ -55,15 +55,15 @@ section.topics {
 
     &:nth-child(1) {
       .col:nth-child(1) {
-        @include dark-overlay-img("../media/home pics/ai-box.jpg", 0.6, 0.7);
+        @include overlay-img("../media/home pics/ai-box.jpg", 0.6, 0.7);
       }
       .col:nth-child(2) {
-        @include dark-overlay-img("../media/home pics/nanotech-box.jpg", 0.6, 0.7);
+        @include overlay-img("../media/home pics/nanotech-box.jpg", 0.6, 0.7);
       }
     }
     &:nth-child(2) {
       .col:nth-child(1) {
-        @include dark-overlay-img("../media/home pics/internet-box.jpg", 0.6, 0.7);
+        @include overlay-img("../media/home pics/internet-box.jpg", 0.6, 0.7);
         .topic-icon {
           margin-left: -25%;
           img {
@@ -72,7 +72,7 @@ section.topics {
         }
       }
       .col:nth-child(2) {
-        @include dark-overlay-img("../media/home pics/biotech-box.jpg", 0.6, 0.7);
+        @include overlay-img("../media/home pics/biotech-box.jpg", 0.6, 0.7);
       }
     }
   }

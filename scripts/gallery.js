@@ -1,4 +1,4 @@
-const section = document.querySelector('section.gallery');
+const images_html = document.querySelectorAll('section.gallery .gallery-item');
 const overlay = document.querySelector('.black-gallery-overlay');
 const galleryContainer = document.querySelector('.gallery-container');
 const closeIcon_gallery = document.querySelector('.gallery-container .close-icon');
@@ -51,7 +51,7 @@ const closeContainer = () => {
 }
 
 function openContainer(e) {
-    index = e.target.dataset.index;
+    index = e.currentTarget.dataset.index;
     const img = images[index];
     overlay.classList.remove('d-none');
     setTimeout(() => center(galleryContainer));
@@ -89,7 +89,10 @@ function goForward() {
     
 }
 
-section.addEventListener('click', openContainer);
+images_html
+        .forEach(image => {
+            image.addEventListener('click', openContainer);
+        });
 closeIcon_gallery.addEventListener('click', closeContainer);
 prevIcon.addEventListener('click', goBack);
 nextIcon.addEventListener('click', goForward);

@@ -1,3 +1,4 @@
+$lightblue: #2462d5;
 @mixin full-space-absolute-block {
   position: absolute;
   width: 100%;
@@ -14,13 +15,13 @@
   }
 }
 
-@mixin dark-overlay-img($img-path, $opacity1, $opacity2) {
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, $opacity1), rgba(0, 0, 0, $opacity2)), url($img-path);
+@mixin overlay-img($img-path, $opacity1, $opacity2, $color: #000) {
+  background-image: linear-gradient(90deg, rgba($color, $opacity1), rgba($color, $opacity2)), url($img-path);
   color: getContrastColor(rgba(0, 0, 0, $opacity1));
 }
 
-@mixin overlay() {
-  background-color: rgba(0, 0, 0, .8);
+@mixin overlay($color: #000000, $opacity: 0.8) {
+  background-color: rgba($color, $opacity);
   position: absolute;
   left: 0;
   top: 0;

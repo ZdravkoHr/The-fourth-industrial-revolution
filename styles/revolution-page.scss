@@ -3,7 +3,7 @@
 header {
   @for $i from 1 to 5 {
     &.revolution-#{$i} {
-      @include dark-overlay-img('../media/headers/#{$i}.jpg', 0.6, 0.7);
+      @include overlay-img("../media/headers/#{$i}.jpg", 0.6, 0.7);
     }
   }
 }
@@ -18,6 +18,27 @@ section.gallery {
   .gallery-item {
     background-size: cover;
     background-position: center;
+    position: relative;
+    .blue-overlay {
+      display: none;
+      color: #fff;
+      @include overlay($lightblue, 0.5);
+      span.zoom-icon {
+        font-size: 2.5vw;
+      }
+      span.text {
+        font-size: 2vw;
+      }
+    }
+    &:hover {
+      .blue-overlay {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
     @for $i from 1 to 10 {
       &:nth-child(#{$i}) {
         grid-area: img#{$i};
@@ -138,15 +159,15 @@ section.next-revolution {
   justify-content: center;
   padding: 1.5rem 5%;
   min-height: 0;
-  
-  a{
-     text-decoration: none;
+
+  a {
+    text-decoration: none;
   }
-  
+
   .revolution-bubble {
     @for $i from 1 to 5 {
       &.revolution-#{$i} {
-        @include dark-overlay-img('../media/headers/#{$i}.jpg', 0.6, 0.7);
+        @include overlay-img("../media/headers/#{$i}.jpg", 0.6, 0.7);
       }
     }
 
@@ -160,14 +181,14 @@ section.next-revolution {
     text-align: center;
     font-size: 3vw;
     border: 10px solid transparent;
-    transition: .5s;
+    transition: 0.5s;
     span {
       opacity: 0;
     }
     &:hover {
-     border: 10px solid gainsboro;
+      border: 10px solid gainsboro;
       span {
-        transition: .5s;
+        transition: 0.5s;
         opacity: 1;
       }
     }
@@ -180,5 +201,4 @@ section.next-revolution {
       font-size: 5vw;
     }
   }
-  
 }
