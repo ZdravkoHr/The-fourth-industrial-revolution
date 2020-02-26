@@ -1,7 +1,5 @@
 @import "utilities";
 @import "intro";
-
-
 *,
 *::before,
 *::after {
@@ -17,21 +15,7 @@ body {
 }
 
 header {
-  background-repeat: none;
-  background-size: cover;
-  background-position: center;
-
-  .header-text {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-        font-size: 6vw;
-    } 
-  }
-   
-
+  min-height: 100vh;
   nav {
     padding: 0 2rem;
     display: flex;
@@ -141,11 +125,7 @@ footer {
     flex: 1;
   }
 }
-
-img {
-  width: 100%;
-  height: 100%;
-}
+ 
 
 canvas.lines {
   position: absolute;

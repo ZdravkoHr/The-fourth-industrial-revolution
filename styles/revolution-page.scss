@@ -1,13 +1,4 @@
 @import "utilities";
-
-header {
-  @for $i from 1 to 5 {
-    &.revolution-#{$i} {
-      @include overlay-img("../media/headers/#{$i}.jpg", 0.6, 0.7);
-    }
-  }
-}
-
 section.gallery {
   display: grid;
   grid-template-areas:
@@ -18,27 +9,6 @@ section.gallery {
   .gallery-item {
     background-size: cover;
     background-position: center;
-    position: relative;
-    .blue-overlay {
-      display: none;
-      color: #fff;
-      @include overlay($lightblue, 0.5);
-      span.zoom-icon {
-        font-size: 2.5vw;
-      }
-      span.text {
-        font-size: 2vw;
-      }
-    }
-    &:hover {
-      .blue-overlay {
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        justify-content: center;
-      }
-    }
-
     @for $i from 1 to 10 {
       &:nth-child(#{$i}) {
         grid-area: img#{$i};
@@ -131,74 +101,29 @@ section.gallery {
   }
 }
 
+header {
+  background: url("../media/1st\ rev\ pics/1st-header.jpg");
+}
 section.info {
-  padding: 4rem 1rem;
-  p {
-    padding: 20px 0;
-    text-align: justify;
+  padding: 2vw;
+  background: #f1f1f1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  img {
+    width: 35vw;
+    margin: 8vw 0;
   }
-  .flex-row {
-    .info-img {
-      flex: 0.5;
-    }
-    .text-1 {
-      h3 {
-        color: #395257;
-        font-size: 2rem;
-        text-align: center;
-      }
+  div.text-1 {
+    color: #395257;
+    h3 {
+      font-size: 3vw;
+      text-align: center;
     }
     p {
-      padding: 20px;
-    }
-  }
-}
-
-section.next-revolution {
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem 5%;
-  min-height: 0;
-
-  a {
-    text-decoration: none;
-  }
-
-  .revolution-bubble {
-    @for $i from 1 to 5 {
-      &.revolution-#{$i} {
-        @include overlay-img("../media/headers/#{$i}.jpg", 0.6, 0.7);
-      }
+      padding: 1vw 2vw;
+      text-align: justify;
+      font-size: 1.42vw;
     }
 
-    width: 30vw;
-    height: 30vw;
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 3vw;
-    border: 10px solid transparent;
-    transition: 0.5s;
-    span {
-      opacity: 0;
-    }
-    &:hover {
-      border: 10px solid gainsboro;
-      span {
-        transition: 0.5s;
-        opacity: 1;
-      }
-    }
-  }
-  .next-arrow {
-    display: flex;
-    align-items: center;
-    margin: 0 40px;
-    * {
-      font-size: 5vw;
-    }
   }
 }
